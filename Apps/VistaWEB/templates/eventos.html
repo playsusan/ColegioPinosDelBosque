@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<div>
+    <label class="evento">Eventos</label>
+</div>
+<div>
+    {% for item in lista %}
+    <div class="noticia">
+        <p class="tit">
+            {{ item.titulo }}
+        </p>
+        <p>
+            {{ item.fecha }}
+        </p>
+        <p>
+            {{ item.resumen }}
+        </p>
+        <a class="linker" href="{% url 'detalle' id=item.id %}">Mostrar
+            detalles...</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

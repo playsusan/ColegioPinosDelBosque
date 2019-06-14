@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Colegio Los Pinos del Bosque</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class= "icono_container">
+            <img class= "icono" src="{% static 'img/icono.png' %}" alt="icono">
+        </div>
+        <a class="navbar-brand" href="{% url 'home' %}">Colegio los Pinos del Bosque</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="boton">
+                <ul class="navbar-nav">
+                    <li class="nav-item margin_btn">
+                        <a class="nav-link" href="{% url 'noticias_mostrar' %}">Noticias</a>
+                    </li>
+                    <li class="nav-item margin_btn">
+                        <a class="nav-link" href="{% url 'eventos_mostrar' %}">Eventos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="todo">
+        {% block wall %}
+        {% endblock %}
+        <div class="block_container">
+            {% block header %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="footer" style="margin-bottom:0">
+        <p>Pagina creada por Susan Acevedo</p>
+    </div>
+</body>
+</html>

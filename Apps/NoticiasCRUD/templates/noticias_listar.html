@@ -1,0 +1,38 @@
+{% extends "layoutCRUD.html" %}
+
+{% block header %}
+<h2>Listado de Noticias o Eventos</h2>
+<p>
+    <a href="../crud/crear">Crear Noticia o Evento</a>
+</p>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Titulo</td>
+            <td>Fecha</td>
+            <td>Resumen</td>
+            <td>Detalle</td>
+            <td>Tipo</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in lista %}
+        <tr>
+            <td>{{ item.titulo }}</td>
+            <td>{{ item.fecha }}</td>
+            <td>{{ item.resumen }}</td>
+            <td>{{ item.detalle }}</td>
+            <td>{{ item.tipo }}</td>
+            <td>
+                <a href="../crud/editar/{{ item.id }}">Editar</a>
+            </td>
+            <td>
+                <a href="../crud/eliminar/{{ item.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
